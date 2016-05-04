@@ -16,7 +16,12 @@
         "moduleFileExtensions": [
             "js",
             "jsx"
-        ]
+        ],
+        "testPathPattern": "**/*.test.js",
+        "testFileExtensions": [
+            "js", "jsx"
+        ],
+        "verbose": "true"
     },
     "keywords": [],
     "author": "Johan Nyström",
