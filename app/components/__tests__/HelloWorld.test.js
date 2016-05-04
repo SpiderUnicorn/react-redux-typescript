@@ -2,10 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 
-const HelloWorld = TestUtils.renderIntoDocument(
+import HelloWorld from '../HelloWorld'
+
+const hello = TestUtils.renderIntoDocument(
     <HelloWorld text={"World"} />
 )
 
-const HelloWorldNode = ReactDOM.findDOMNode(HelloWorld)
+const helloNode = ReactDOM.findDOMNode(hello)
 
-expect(HelloWorldNode.textContent).toEqual('Hello World')
+expect(helloNode.textContent).toEqual('Hello World')
