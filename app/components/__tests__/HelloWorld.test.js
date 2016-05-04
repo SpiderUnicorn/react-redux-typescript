@@ -2,8 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 
-var HelloWorld = TestUtils.renderIntoDocument(
-    React.createElement('HelloWorld', { text: 'World'})
+const HelloWorld = TestUtils.renderIntoDocument(
+    <HelloWorld text={"World"} />
 )
 
-expect(ReactDOM.findDOMNode(HelloWorld)).toEqual('World')
+const HelloWorldNode = ReactDOM.findDOMNode(HelloWorld)
+
+expect(HelloWorldNode.textContent).toEqual('Hello World')
