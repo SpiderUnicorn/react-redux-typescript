@@ -3,7 +3,7 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -17,7 +17,7 @@ module.exports = {
     "rules": {
         "indent": [
             "error",
-            4
+            "tab"
         ],
         "linebreak-style": [
             "error",
@@ -30,7 +30,6 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ],
-        "react/jsx-uses-vars": 1
+        ]
     }
 };
