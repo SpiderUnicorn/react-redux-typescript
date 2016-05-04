@@ -1,6 +1,5 @@
-// react
-import { render } from 'react-dom'
 import { Router, Route, browserHistory } from 'react-router'
+import { render } from 'react-dom'
 
 // components
 import App from './components/app'

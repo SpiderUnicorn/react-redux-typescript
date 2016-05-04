@@ -25,7 +25,7 @@ module.exports = {
             {
                 test: [/\.jsx?$/, /\.js?$/],
                 loader: "eslint",
-                exclude: /node_modules/,
+                include: /app/,
             },
         ],
 
@@ -33,7 +33,7 @@ module.exports = {
             {
                 test: [/\.jsx?$/, /\.js?$/],
                 loaders: ['react-hot', 'babel'],
-                exclude: /node_modules/
+                include: /app/
             },
         ]
     },
