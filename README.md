@@ -6,7 +6,3 @@ A simple starter pack for react with react-router, webpack, hot-reloading and li
 ```sh
 $ npm i
 ```
-
-License
-----
-MIT
