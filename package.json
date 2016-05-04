@@ -4,7 +4,7 @@
     "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
     "main": "app/index.jsx",
     "scripts": {
-        "test": "./node_modules/.bin/jest",
+        "test": "./node_modules/.bin/jest --coverage",
         "start": "webpack-dev-server --content-base app/ --inline --hot --colors"
     },
     "jest": {
@@ -21,6 +21,7 @@
         "testFileExtensions": [
             "js", "jsx"
         ],
+        "collectCoverage": true,
         "verbose": "true"
     },
     "keywords": [],
