@@ -13,7 +13,7 @@ const result = renderer.getRenderOutput();
 
 describe('A sample test', () => {
     it('works', () => {
-        expect(result.toBe('HelloWorld'))
+        expect(result.props.children).toEqual(['Hello ', 'World'])
     })
 })
 
