@@ -2,7 +2,7 @@
   "name": "react-es6-starter",
   "version": "0.0.1",
   "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
-  "main": "app/index.js",
+  "main": "app/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --content-base app/ --inline --hot --colors"

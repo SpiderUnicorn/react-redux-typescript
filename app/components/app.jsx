@@ -1,8 +1,6 @@
 // react
 import React from 'react'
 
-// components
-import HelloWorld from './helloWorld'
 
 // redux
 class App extends React.Component {
@@ -13,8 +11,6 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <HelloWorld phrase="the other side" />
-                <input onChange={this.handleChange} />
                 <h2>hej</h2>
             </div>
 
