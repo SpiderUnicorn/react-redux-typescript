@@ -1,8 +1,10 @@
 import React from 'react'
 
-const HelloWorld = () => (
-    <h1>Hello world!!</h1>
+const HelloWorld = ({text}) => (
+    <h1>Hello {text}</h1>
 )
+
+HelloWorld.propTypes = {text: React.PropTypes.string.isRequired}
 
 export default HelloWorld
 
