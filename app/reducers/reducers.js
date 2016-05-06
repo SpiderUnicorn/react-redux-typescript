@@ -1,18 +1,15 @@
-import { write } from '../actions/actions'
+import { INCREMENT } from '../constants/actionTypes'
 
 const initialState = {
-    text: 'init'
+    count: 0
 }
 
-// default syntax
-// first call to redux is with state === 'undefined'
-// which will be replaced with the initialState
-function helloWorld(state = initialState, action) {
+function reducer(state = initialState, action) {
     switch (action.type) {
-        case WRITE:
+        case INCREMENT:
             // make a copy of state with new properties
             return Object.assign({}, state, {
-                text: action.text
+                count: state.count + 1
             })
         default:
             // return the previous state on any unknown action
@@ -20,5 +17,4 @@ function helloWorld(state = initialState, action) {
     }
 }
 
-
-export default helloWorld
+export default reducer

@@ -1,11 +1,18 @@
+import React from 'react'
 import { Router, Route, browserHistory } from 'react-router'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers/reducers'
 
-// components
-import App from './components/App'
+import App from './components/AppContainer'
+
+let store = createStore(reducer)
 
 render((
-    <Router history={browserHistory}>
-        <Route path="/" component={App} />
-    </Router>
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path="/" component={App} />
+        </Router>
+    </Provider>
 ), document.getElementById('app'))

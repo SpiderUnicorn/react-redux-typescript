@@ -1,5 +1,5 @@
-import { WRITE } from '../constants/actionTypes'
+import { INCREMENT } from '../constants/actionTypes'
 
-export function write(text) {
-    return { type: WRITE, text }
+export function increment() {
+    return { type: INCREMENT }
 }

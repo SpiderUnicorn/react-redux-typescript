@@ -1,1 +1,1 @@
-export const WRITE = 'WRITE'
+export const INCREMENT = 'INCREMENT'
