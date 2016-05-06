@@ -1,3 +1,4 @@
+/*
 jest.unmock('../HelloWorld')
 
 import React from 'react'
@@ -20,3 +21,4 @@ describe('A sample test', () => {
     })
 })
 
+*/

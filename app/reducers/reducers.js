@@ -1,11 +1,9 @@
 import { INCREMENT } from '../constants/actionTypes'
 
-const initialState = {
-    count: 0
-}
+const initialState = { count: 0 }
 
 function reducer(state = initialState, action) {
-    switch (action.type) {
+    switch(action.type) {
         case INCREMENT:
             // make a copy of state with new properties
             return Object.assign({}, state, {
