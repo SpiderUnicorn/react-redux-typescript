@@ -3,11 +3,11 @@ import { Router, Route, browserHistory } from 'react-router'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import reducer from './reducers/reducers'
+import counterReducer from './reducers/'
 
 import App from './components/AppContainer'
 
-let store = createStore(reducer)
+let store = createStore(counterReducer)
 
 render((
     <Provider store={store}>
