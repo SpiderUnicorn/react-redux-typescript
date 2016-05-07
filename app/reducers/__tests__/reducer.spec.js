@@ -1,10 +1,10 @@
-jest.unmock('../reducers')
+jest.unmock('../')
 jest.unmock('../../constants/actionTypes')
 
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 
-import reducer from '../reducers'
+import reducer from '../'
 import { INCREMENT } from '../../constants/actionTypes'
 
 describe('Counter reducer', () => {
