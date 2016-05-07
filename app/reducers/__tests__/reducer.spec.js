@@ -12,9 +12,9 @@ describe('Counter reducer', () => {
         expect(reducer({count: 0}, {type: INCREMENT}).count).toEqual(1)
     })
 
-    describe('given undefined action', () => {
+    describe('given no action', () => {
         it('returns previous state', () => {
-            expect(reducer({count: 0}, {type: ''}).count).toEqual(0)
+            expect(reducer(undefined, {}).count).toEqual(0)
         })
     })
 
