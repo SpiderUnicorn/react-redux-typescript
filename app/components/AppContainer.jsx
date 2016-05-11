@@ -1,4 +1,3 @@
-import React from 'react'
 import { increment } from '../actions/actions'
 import {connect} from 'react-redux'
 import App from './App'

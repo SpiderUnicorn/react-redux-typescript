@@ -10,4 +10,9 @@ const App = ({onClick, value}) => (
     </div>
 )
 
+App.propTypes = {
+    onClick: React.PropTypes.func.isRequired,
+    value: React.PropTypes.number.isRequired
+}
+
 export default App

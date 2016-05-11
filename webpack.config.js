@@ -16,6 +16,12 @@ module.exports = {
         publicPath: '/assets'
     },
 
+    /* used for enzyme */
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ],
