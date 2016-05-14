@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const NpmInstallPlugin = require('npm-install-webpack-plugin')
+
 const PATHS = {
     app: path.join(__dirname, 'app'),
     build: path.join(__dirname, 'build')
@@ -10,7 +12,12 @@ module.exports = {
 
     devServer: {
         port: 8000,
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        progress: true,
+        devtool: 'eval-source-map',
+        stats: 'errors-only'
     },
 
     entry: {
@@ -29,7 +36,10 @@ module.exports = {
         'react/lib/ReactContext': true,
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new NpmInstallPlugin({
+            save: true // --save
+        })
     ],
 
     module: {
@@ -37,7 +47,7 @@ module.exports = {
             {
                 test: [/\.jsx?$/, /\.js?$/],
                 loader: "eslint",
-                include: /app/,
+                include: PATHS.app
             },
         ],
 
