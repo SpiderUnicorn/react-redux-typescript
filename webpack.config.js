@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 const PATHS = {
     app: path.join(__dirname, 'app'),
@@ -36,10 +35,7 @@ module.exports = {
         'react/lib/ReactContext': true,
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new NpmInstallPlugin({
-            save: true // --save
-        })
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
@@ -56,7 +52,7 @@ module.exports = {
                 test: [/\.jsx?$/, /\.js?$/],
                 // cache babel tranpilation for increased performance during development
                 loaders: ['react-hot', 'babel?cacheDirectory'],
-                include: /app/
+                include: PATHS.app
             },
         ]
     },

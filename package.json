@@ -5,7 +5,7 @@
   "main": "app/index.jsx",
   "scripts": {
     "test": "mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
-    "start": "webpack-dev-server --content-base app/ --colors",
+    "start": "webpack-dev-server --content-base app/",
     "build": "webpack"
   },
   "jest": {
