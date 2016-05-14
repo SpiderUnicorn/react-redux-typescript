@@ -5,7 +5,8 @@
   "main": "app/index.jsx",
   "scripts": {
     "test": "node_modules/.bin/mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
-      "start": "webpack-dev-server --content-base app/ --inline --hot --display-error-details --colors"
+      "start": "webpack-dev-server --content-base app/ --inline --hot --display-error-details --colors",
+      "build": "webpack"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/babel-jest",
