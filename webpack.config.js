@@ -54,7 +54,8 @@ module.exports = {
         loaders: [
             {
                 test: [/\.jsx?$/, /\.js?$/],
-                loaders: ['react-hot', 'babel'],
+                // cache babel tranpilation for increased performance during development
+                loaders: ['react-hot', 'babel?cacheDirectory'],
                 include: /app/
             },
         ]
