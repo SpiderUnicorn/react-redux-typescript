@@ -7,8 +7,7 @@ const PATHS = {
     build: path.join(__dirname, 'build')
 }
 
-module.exports = {
-
+export default {
     devServer: {
         port: 8000,
         historyApiFallback: true,
