@@ -7,7 +7,7 @@ const PATHS = {
     build: path.join(__dirname, 'build')
 }
 
-export default {
+var config = {
     devServer: {
         port: 8000,
         historyApiFallback: true,
@@ -60,3 +60,5 @@ export default {
         extensions: ['', '.js', '.jsx']
     }
 }
+
+module.exports = config;
