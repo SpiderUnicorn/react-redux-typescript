@@ -1,11 +1,12 @@
 import React from 'react'
 
-import IncrementButton from './IncrementButton'
+import CounterButton from './CounterButton'
 import CounterDisplay from './CounterDisplay'
 
-const App = ({onClick, value}) => (
+const App = ({onIncrement, onDecrement, value}) => (
     <div>
-        <IncrementButton onClick={ () => onClick() } text="+" />
+        <CounterButton onClick={ () => onIncrement() } text="+" />
+        <CounterButton onClick={ () => onDecrement() } text="-" />
         <CounterDisplay value={value} />
     </div>
 )

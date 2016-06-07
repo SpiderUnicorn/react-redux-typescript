@@ -1,4 +1,4 @@
-import { increment } from '../actions/actions'
+import { increment, decrement } from '../actions/actions'
 import {connect} from 'react-redux'
 import App from './App'
 
@@ -10,8 +10,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: () => {
+        onIncrement: () => {
             dispatch(increment())
+        },
+        onDecrement: () => {
+            dispatch(decrement())
         }
     }
 }
