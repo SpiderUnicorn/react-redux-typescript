@@ -12,7 +12,8 @@ const App = ({onIncrement, onDecrement, value}) => (
 )
 
 App.propTypes = {
-    onClick: React.PropTypes.func.isRequired,
+    onIncrement: React.PropTypes.func.isRequired,
+    onDecrement: React.PropTypes.func.isRequired,
     value: React.PropTypes.number.isRequired
 }
 
