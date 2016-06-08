@@ -6,7 +6,13 @@ import configure from './store/'
 
 import App from './components/AppContainer'
 
-let store = configure()
+// optinally provide persisted state
+// to override the intitial state from reducers
+const persistedState = {
+    count: 0
+}
+
+let store = configure(persistedState)
 
 render((
     <Provider store={store}>
