@@ -7,10 +7,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onIncrement: () => {
+    onIncrement() {
         dispatch(increment())
     },
-    onDecrement: () => {
+    onDecrement() {
         dispatch(decrement())
     }
 })
