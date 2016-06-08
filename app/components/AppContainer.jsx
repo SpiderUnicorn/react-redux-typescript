@@ -6,18 +6,13 @@ const mapStateToProps = (state) => ({
     value: state.count
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    onIncrement() {
-        dispatch(increment())
-    },
-    onDecrement() {
-        dispatch(decrement())
-    }
-})
-
 const AppContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    {
+        /* Shorthand for mapDispatchToProps. Can be used when arguments match */
+        onIncrement: increment,
+        onDecrement: decrement
+    }
 )(App)
 
 export default AppContainer
