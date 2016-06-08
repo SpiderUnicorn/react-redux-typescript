@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import configure from './store/configureStore'
 
-import App from './components/AppContainer'
+import Root from './components/Root'
 
 const store = configure()
 
