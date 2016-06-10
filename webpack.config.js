@@ -12,6 +12,11 @@ const validate = require('webpack-validator');
 /* Partial configuration to include */
 const parts = require('./lib/parts');
 
+/* get config to pull vendor dependencies
+ * for splitting the bundle into appropriate
+ * chunks */
+const package = require('./package.json');
+
 const PATHS = {
     app: path.join(__dirname, 'src'),
     build: path.join(__dirname, 'build')
@@ -19,11 +24,12 @@ const PATHS = {
 
 const common = {
     entry: {
-        app: PATHS.app
+        app: PATHS.app,
     },
 
     output: {
-        filename: 'bundle.js',
+        path: PATHS.build,
+        filename: '[name].js',
         publicPath: '/assets/'
     },
 
@@ -65,6 +71,10 @@ switch(process.env.npm_lifecycle_event) {
                 'process.env.NODE_ENV',
                 'production'
             ),
+            parts.extractBundle({
+                name: 'vendor',
+                entries: Object.keys(package.dependencies)
+            }),
             parts.minify(),
             parts.setupCSS(PATHS.app)
         );
