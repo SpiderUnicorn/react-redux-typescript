@@ -9,18 +9,15 @@ const merge = require('webpack-merge')
  * see the module.exports at the bottom of the page */
 const validate = require('webpack-validator');
 
+/* Partial configuration to include */
+const parts = require('./lib/parts');
+
 const PATHS = {
     app: path.join(__dirname, 'src'),
     build: path.join(__dirname, 'build')
 }
 
 const common = {
-    devServer: {
-        port: 8000,
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-    },
     // generate source maps for easier debugging
     devtool: 'eval-source-map',
 
@@ -32,10 +29,6 @@ const common = {
         filename: 'bundle.js',
         publicPath: '/assets/'
     },
-
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
 
     module: {
         preLoaders: [
@@ -68,8 +61,14 @@ switch(process.env.npm_lifecycle_event) {
         config = merge(common, {});
         break;
     default:
-        config = merge(common, {});
-        break;
+        config = merge(
+            common,
+            parts.devServer({
+                // Read host and port from env
+                host: process.env.HOST,
+                port: process.env.PORT
+            })
+        );
 }
 
 module.exports = validate(config);
