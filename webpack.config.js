@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const merge = require('webpack-merge')
 
 
 const PATHS = {
@@ -7,7 +8,7 @@ const PATHS = {
     build: path.join(__dirname, 'build')
 }
 
-var config = {
+const common = {
     devServer: {
         port: 8000,
         historyApiFallback: true,
@@ -53,6 +54,17 @@ var config = {
     resolve: {
         extensions: ['', '.js', '.jsx']
     }
+}
+
+let config;
+
+switch(process.env.npm_lifecycle_event) {
+    case 'build':
+        config = merge(common, {});
+        break;
+    default:
+        config = merge(common, {});
+        break;
 }
 
 module.exports = config;

@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
 import App from './AppContainer'
-import Material from './material-ui/MyAwesomeReactComponent'
 
 const Root = ({store}) => (
     <Provider store={store}>
