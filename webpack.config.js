@@ -64,6 +64,9 @@ let config;
 /* Branch config based on NPM run command */
 switch(process.env.npm_lifecycle_event) {
     case 'build':
+    // fallthrough. generate stats for the build config
+    case 'stats':
+
         config = merge(
             common,
             {

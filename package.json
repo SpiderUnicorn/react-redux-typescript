@@ -4,6 +4,7 @@
   "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
   "main": "src/index.jsx",
   "scripts": {
+    "stats": "webpack --profile --json > stats.json",
     "test": "mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
     "start": "webpack-dev-server --content-base src/ --progress --colors",
     "build": "webpack",
@@ -90,6 +91,7 @@
     "mocha": "^2.4.5",
     "npm-install-webpack-plugin": "^3.1.3",
     "phantomjs-prebuilt": "^2.1.7",
+    "purifycss-webpack-plugin": "^2.0.3",
     "react-addons-test-utils": "^15.0.2",
     "react-hot-loader": "^1.3.0",
     "sinon": "^1.17.4",
