@@ -53,6 +53,7 @@ const common = {
 
 let config;
 
+/* Branch config based on NPM run command */
 switch(process.env.npm_lifecycle_event) {
     case 'build':
         config = merge(
@@ -60,6 +61,7 @@ switch(process.env.npm_lifecycle_event) {
             {
                 devtool: 'source-map'
             },
+            parts.minify(),
             parts.setupCSS(PATHS.app)
         );
         break;
