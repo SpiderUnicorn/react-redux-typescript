@@ -75,6 +75,7 @@
     "eslint-plugin-react": "^5.0.1",
     "expect": "^1.20.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.20.0",
     "jest": "^0.1.40",
     "jest-cli": "^12.0.2",
     "jsdom": "^9.0.0",

@@ -1,6 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 
+/* Let webpack generate HTML to easily include bundles */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 /* Split the configuration to extract common behaviour for all
  * configurations and merge it with build / prod config */
 const merge = require('webpack-merge')
@@ -32,7 +35,6 @@ const common = {
     output: {
         path: PATHS.build,
         filename: '[name].js',
-        publicPath: '/assets/'
     },
 
     module: {
@@ -54,6 +56,12 @@ const common = {
         ]
     },
 
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Webpack'
+        })
+    ],
+
     resolve: {
         extensions: ['', '.js', '.jsx']
     }
@@ -66,7 +74,6 @@ switch(process.env.npm_lifecycle_event) {
     case 'build':
     // fallthrough. generate stats for the build config
     case 'stats':
-
         config = merge(
             common,
             {

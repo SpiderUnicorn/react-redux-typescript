@@ -10,4 +10,4 @@ const store = configure()
 
 render((
     <Root store={store} />
-), document.getElementById('app'))
+), document.body)
