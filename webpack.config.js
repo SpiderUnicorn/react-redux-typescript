@@ -20,10 +20,9 @@ const common = {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        progress: true,
-        devtool: 'eval-source-map',
-        stats: 'errors-only'
     },
+    // generate source maps for easier debugging
+    devtool: 'eval-source-map',
 
     entry: {
         app: PATHS.app
@@ -31,7 +30,7 @@ const common = {
 
     output: {
         filename: 'bundle.js',
-        publicPath: '/assets'
+        publicPath: '/assets/'
     },
 
     plugins: [
