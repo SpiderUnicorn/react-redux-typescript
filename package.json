@@ -2,10 +2,10 @@
   "name": "react-es6-starter",
   "version": "0.0.1",
   "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
-  "main": "app/index.jsx",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
-    "start": "webpack-dev-server --content-base app/",
+    "start": "webpack-dev-server --content-base src/",
     "build": "webpack"
   },
   "jest": {
@@ -51,8 +51,8 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootswatch": "^3.3.6",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.3.0",
     "redux": "^3.5.2"
