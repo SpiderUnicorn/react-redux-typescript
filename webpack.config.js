@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 
 const PATHS = {
-    app: path.join(__dirname, 'app'),
+    app: path.join(__dirname, 'src'),
     build: path.join(__dirname, 'build')
 }
 
@@ -27,12 +27,6 @@ var config = {
         publicPath: '/assets'
     },
 
-    /* used for enzyme */
-    externals: {
-        'cheerio': 'window',
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true,
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ],
