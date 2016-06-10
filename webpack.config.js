@@ -1,7 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
+
+/* Split the configuration to extract common behaviour for all
+ * configurations and merge it with build / prod config */
 const merge = require('webpack-merge')
 
+/* validates webpack config against a schema and reports errors
+ * see the module.exports at the bottom of the page */
+const validate = require('webpack-validator');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -67,4 +73,4 @@ switch(process.env.npm_lifecycle_event) {
         break;
 }
 
-module.exports = config;
+module.exports = validate(config);
