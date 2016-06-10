@@ -19,11 +19,13 @@ const package = require('./package.json');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
+    style: path.join(__dirname, 'src', 'index.css'),
     build: path.join(__dirname, 'build')
 }
 
 const common = {
     entry: {
+        style: PATHS.style,
         app: PATHS.app,
     },
 
@@ -83,7 +85,7 @@ switch(process.env.npm_lifecycle_event) {
                 entries: Object.keys(package.dependencies)
             }),
             parts.minify(),
-            parts.setupCSS(PATHS.app)
+            parts.extractCSS(PATHS.style)
         );
         break;
     default:
@@ -92,7 +94,7 @@ switch(process.env.npm_lifecycle_event) {
             {
                 devtool: 'eval-source-map'
             },
-            parts.setupCSS(PATHS.app),
+            parts.setupCSS(PATHS.style),
             parts.devServer({
                 // Read host and port from env
                 host: process.env.HOST,
