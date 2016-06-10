@@ -58,11 +58,15 @@ let config;
 
 switch(process.env.npm_lifecycle_event) {
     case 'build':
-        config = merge(common, {});
+        config = merge(
+            common,
+            parts.setupCSS(PATHS.app)
+        );
         break;
     default:
         config = merge(
             common,
+            parts.setupCSS(PATHS.app),
             parts.devServer({
                 // Read host and port from env
                 host: process.env.HOST,
