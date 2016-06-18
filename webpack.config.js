@@ -47,12 +47,19 @@ const common = {
         ],
 
         loaders: [
+            // loader for regular react
             {
                 test: [/\.jsx?$/, /\.js?$/],
                 // cache babel tranpilation for increased performance during development
                 loaders: ['react-hot', 'babel?cacheDirectory'],
                 include: PATHS.app
             },
+            // loader for typescript-tsx
+            {
+                test: /\.tsx?$/,
+                loaders: ['react-hot','babel?cacheDirectory', 'ts?jsx=true'],
+                exclude: /node_modules/
+            }
         ]
     },
 
@@ -63,7 +70,7 @@ const common = {
     ],
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.ts', '.tsx']
     }
 }
 

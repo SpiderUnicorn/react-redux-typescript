@@ -2,7 +2,7 @@ import { increment, decrement } from '../actions/actions'
 import {connect} from 'react-redux'
 import App from './App'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:any) => ({
     value: state.count
 })
 

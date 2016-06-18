@@ -1,5 +1,6 @@
 import reducer from '../reducers/'
 import { createStore } from 'redux'
+declare var window;
 
 // Export the configure method instead of the store
 // to be able to create any amount of stores for testing

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 const CounterButton = ({onClick, text}) => (
     <div>
@@ -6,9 +6,10 @@ const CounterButton = ({onClick, text}) => (
     </div>
 )
 
+/*
 CounterButton.propTypes = {
     onClick: React.PropTypes.func.isRequired,
     text: React.PropTypes.string.isRequired
 }
-
+*/
 export default CounterButton

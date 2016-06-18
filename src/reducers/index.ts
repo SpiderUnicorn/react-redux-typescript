@@ -2,7 +2,7 @@ import { INCREMENT, DECREMENT } from '../constants/actionTypes'
 
 const initialState = { count: 0 }
 
-function counterReducer(state = initialState, action) {
+function counterReducer(state = initialState, action:any) {
     switch(action.type) {
     case INCREMENT:
             // make a copy of state with new properties
