@@ -1,8 +1,9 @@
 import { INCREMENT, DECREMENT } from 'constants/actionTypes'
+import { IState } from './IState'
 
-const initialState = { count: 0 }
+const initialState:IState = { count: 0 }
 
-function counterReducer(state = initialState, action:any) {
+function counterReducer(state:IState = initialState, action:any) {
     switch(action.type) {
     case INCREMENT:
             // make a copy of state with new properties
