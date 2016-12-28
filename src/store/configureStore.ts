@@ -1,4 +1,4 @@
-import reducer from '../reducers/'
+import reducer from 'reducers'
 import { Store, createStore } from 'redux'
 
 declare var window;

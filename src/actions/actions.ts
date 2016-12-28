@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from '../constants/actionTypes'
+import { INCREMENT, DECREMENT } from 'constants/actionTypes'
 
 interface IAction {
     type: string

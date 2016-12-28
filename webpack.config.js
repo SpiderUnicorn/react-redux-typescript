@@ -69,6 +69,8 @@ const common = {
     ],
 
     resolve: {
+        // to resolve modules loaded by absolute path
+        root: path.resolve('./src'),
         extensions: ['', '.js', '.jsx', '.ts', '.tsx']
     }
 }

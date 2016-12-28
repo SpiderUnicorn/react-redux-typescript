@@ -2,7 +2,7 @@
   "name": "react-redux-typescript",
   "version": "0.0.1",
   "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
-  "main": "src/index.jsx",
+  "main": "./src/index.tsx",
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
     "test": "mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
