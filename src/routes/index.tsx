@@ -3,7 +3,7 @@ import { Router, Route, browserHistory } from 'react-router'
 
 import App from 'components/AppContainer'
 
-export const routes = () => (
+export default (
    <Router history={browserHistory}>
       <Route path="/" component={App} />
    </Router>
