@@ -1,4 +1,4 @@
-# React es6 starter
+# React redux typescript starter
 
 A simple starter pack for react with react-router, webpack, hot-reloading and linting set up.
 
