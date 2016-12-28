@@ -1,12 +1,13 @@
 /* vendor */
 import * as React from 'react'
 import { render } from 'react-dom'
-import configure from './store/configureStore'
+import { Store } from 'redux'
+import configureStore from './store/configureStore'
 
 /* components */
 import Root from './components/Root'
 
-const store = configure()
+const store: Store<any> = configureStore()
 
 render((
     <Root store={store} />

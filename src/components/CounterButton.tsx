@@ -6,10 +6,4 @@ const CounterButton = ({onClick, text}) => (
     </div>
 )
 
-/*
-CounterButton.propTypes = {
-    onClick: React.PropTypes.func.isRequired,
-    text: React.PropTypes.string.isRequired
-}
-*/
 export default CounterButton

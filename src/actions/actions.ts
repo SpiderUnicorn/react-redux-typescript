@@ -1,9 +1,13 @@
 import { INCREMENT, DECREMENT } from '../constants/actionTypes'
 
-export const increment = () => ({
+interface IAction {
+    type: string
+}
+
+export const increment = (): IAction => ({
     type: INCREMENT
 })
 
-export const decrement = () => ({
+export const decrement = (): IAction => ({
     type: DECREMENT
 })
