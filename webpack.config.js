@@ -64,7 +64,8 @@ const common = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack'
+            title: 'React redux typescript',
+            template: 'src/index.template.ejs'
         })
     ],
 

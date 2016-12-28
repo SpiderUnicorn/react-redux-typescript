@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from 'constants/actionTypes'
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'constants/actionTypes'
 
 interface IAction {
     type: string
@@ -6,9 +6,9 @@ interface IAction {
 }
 
 export const increment = (): IAction => ({
-    type: INCREMENT
+    type: INCREMENT_COUNTER
 })
 
 export const decrement = (): IAction => ({
-    type: DECREMENT
+    type: DECREMENT_COUNTER
 })

@@ -8,7 +8,8 @@ import configureStore from './store/configureStore'
 import { Root } from './components/Root'
 
 const store: Store<any> = configureStore()
+const appElement: HTMLElement = document.getElementById('app')
 
 render((
     <Root store={store} />
-), document.body)
+), appElement)
