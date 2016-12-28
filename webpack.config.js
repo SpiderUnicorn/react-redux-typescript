@@ -1,8 +1,7 @@
 const path = require('path')
-const webpack = require('webpack')
 
 /* Let webpack generate HTML to easily include bundles */
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /* Split the configuration to extract common behaviour for all
  * configurations and merge it with build / prod config */
@@ -10,15 +9,15 @@ const merge = require('webpack-merge')
 
 /* validates webpack config against a schema and reports errors
  * see the module.exports at the bottom of the page */
-const validate = require('webpack-validator');
+const validate = require('webpack-validator')
 
 /* Partial configuration to include */
-const parts = require('./lib/parts');
+const parts = require('./lib/parts')
 
 /* get config to pull vendor dependencies
  * for splitting the bundle into appropriate
  * chunks */
-const package = require('./package.json');
+const manifest = require('./package.json')
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -29,21 +28,21 @@ const PATHS = {
 const common = {
     entry: {
         style: PATHS.style,
-        app: PATHS.app,
+        app: PATHS.app
     },
 
     output: {
         path: PATHS.build,
-        filename: '[name].js',
+        filename: '[name].js'
     },
 
     module: {
         preLoaders: [
             {
                 test: [/\.jsx?$/, /\.js?$/],
-                loader: "eslint",
+                loader: 'eslint',
                 include: PATHS.app
-            },
+            }
         ],
 
         loaders: [
@@ -74,7 +73,7 @@ const common = {
     }
 }
 
-let config;
+let config
 
 /* Branch config based on NPM run command */
 switch(process.env.npm_lifecycle_event) {
@@ -99,12 +98,12 @@ switch(process.env.npm_lifecycle_event) {
             ),
             parts.extractBundle({
                 name: 'vendor',
-                entries: Object.keys(package.dependencies)
+                entries: Object.keys(manifest.dependencies)
             }),
             parts.minify(),
             parts.extractCSS(PATHS.style)
-        );
-        break;
+        )
+        break
     default:
         config = merge(
             common,
@@ -117,7 +116,7 @@ switch(process.env.npm_lifecycle_event) {
                 host: process.env.HOST,
                 port: process.env.PORT
             })
-        );
+        )
 }
 
-module.exports = validate(config);
+module.exports = validate(config)

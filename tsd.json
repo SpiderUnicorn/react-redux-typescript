@@ -22,6 +22,12 @@
     },
     "react/react-dom.d.ts": {
       "commit": "c02b03f677ca88e364cfda5308c58d0832664581"
+    },
+    "react-redux/react-redux-2.1.2.d.ts": {
+      "commit": "f0452899f4f1553a5a06697c06c9d2f38039c44c"
+    },
+    "react-router/react-router-1.0.0.d.ts": {
+      "commit": "f0452899f4f1553a5a06697c06c9d2f38039c44c"
     }
   }
 }
