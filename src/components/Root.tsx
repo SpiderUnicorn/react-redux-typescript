@@ -1,16 +1,10 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, browserHistory } from 'react-router'
 
-import App from './AppContainer'
+import { routes } from 'routes'
 
-const Root = ({store}) => (
+export const Root = ({store}) => (
     <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route path="/" component={App} />
-        </Router>
+        {routes}
     </Provider>
 )
-
-export default Root
-

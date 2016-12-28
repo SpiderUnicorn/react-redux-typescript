@@ -5,7 +5,7 @@ import { Store } from 'redux'
 import configureStore from './store/configureStore'
 
 /* components */
-import Root from './components/Root'
+import { Root } from './components/Root'
 
 const store: Store<any> = configureStore()
 
