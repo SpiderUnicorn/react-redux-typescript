@@ -1,25 +1,29 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'constants/actionTypes'
+import { SAVE_RECIPE } from 'actions/actionTypes'
 import { Reducer } from 'redux'
 import { IAction } from 'actions'
 
 export interface IApplicationState {
-    count: number
+    recipes: Array<IRecipe>
 }
 
-const initialState: IApplicationState = { count: 0 }
+export interface IRecipe {
+    title: string,
+    description: string
+}
+
+const initialState: IApplicationState = { 
+    recipes: [ 
+        { 
+            title: "Demo",
+            description: "This is overridden in createStore"
+        }
+    ]
+}
 
 function counterReducer(state = initialState, action:IAction): IApplicationState {
-
     switch(action.type) {
-    case INCREMENT_COUNTER:
-            // make a copy of state with new properties
-        return combine(state, {
-            count: state.count + 1
-        })
-    case DECREMENT_COUNTER:
-        return combine(state, {
-            count: state.count - 1
-        })
+    case SAVE_RECIPE:
+        return combine(state, { recipes: [...state.recipes, action.payload] }) 
     default:
             // return the previous state on any unknown action
         return state

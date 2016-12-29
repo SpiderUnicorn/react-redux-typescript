@@ -1,0 +1,1 @@
+export const SAVE_RECIPE = 'recipes/SAVE_RECIPE'

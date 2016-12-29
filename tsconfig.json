@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
     "removeComments": false,
+    "experimentalDecorators": true,
     "target": "es6"
   },
   

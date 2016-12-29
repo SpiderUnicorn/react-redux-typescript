@@ -1,14 +1,11 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'constants/actionTypes'
+import { SAVE_RECIPE } from 'actions/actionTypes'
 
 export interface IAction {
     type: string
-    // add more stuff to actions here
+    payload: Object
 }
 
-export const increment = (): IAction => ({
-    type: INCREMENT_COUNTER
-})
-
-export const decrement = (): IAction => ({
-    type: DECREMENT_COUNTER
+export const saveRecipe = (title, description): IAction => ({
+    type: SAVE_RECIPE,
+    payload: { title, description }
 })
