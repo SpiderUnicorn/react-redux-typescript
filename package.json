@@ -51,7 +51,6 @@
   "author": "Johan Nyström",
   "license": "MIT",
   "dependencies": {
-    "@types/redux": "^3.6.31",
     "bootstrap": "^3.3.7",
     "bootswatch": "^3.3.7",
     "react": "^15.1.0",
@@ -109,6 +108,7 @@
     "sass-loader": "^4.1.1",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
+    "ts-loader": "^1.3.3",
     "typescript": "^2.2.0-dev.20161228",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
