@@ -7,9 +7,8 @@ import configureStore from './store/configureStore'
 /* components */
 import { Root } from './components/Root'
 
-const store: Store<any> = configureStore()
-const appElement: HTMLElement = document.getElementById('app')
+const store = configureStore()
 
-render((
-    <Root store={store} />
-), appElement)
+const appElement = document.getElementById('app')
+
+render((<Root store={store} />), appElement)

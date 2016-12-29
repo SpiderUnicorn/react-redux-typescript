@@ -1,6 +1,6 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from 'constants/actionTypes'
 
-interface IAction {
+export interface IAction {
     type: string
     // add more stuff to actions here
 }

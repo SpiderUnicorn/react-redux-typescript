@@ -1,10 +1,10 @@
-import {increment, decrement} from 'actions/actions'
+import {increment, decrement} from 'actions'
 import {connect} from 'react-redux'
-import {IState} from 'reducers/IState'
+import {IApplicationState} from 'reducers'
 
 import App from './App'
 
-const mapStateToProps = (state:IState) => ({
+const mapStateToProps = (state:IApplicationState) => ({
     value: state.count
 })
 
