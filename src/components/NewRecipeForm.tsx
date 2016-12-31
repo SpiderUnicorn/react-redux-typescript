@@ -1,17 +1,14 @@
 import React, {Component, FormEvent} from 'react'
 
-interface IState {
-   title: string,
-   description: string
-}
+import {IRecipe} from 'model/recipe'
 
-interface IProps {
+interface INewRecipeFormProps {
    submit: Function
 }
 
-export default class NewRecipeForm extends Component<IProps, IState> {
+export default class NewRecipeForm extends Component<INewRecipeFormProps, IRecipe> {
 
-   constructor(props: IProps) {
+   constructor(props: INewRecipeFormProps) {
       super(props);
 
       this.state = {

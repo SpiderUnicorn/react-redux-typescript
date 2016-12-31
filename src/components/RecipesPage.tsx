@@ -5,8 +5,14 @@ import {IApplicationState} from 'reducers'
 
 import Recipes from 'components/Recipes'
 import NewRecipeForm from 'components/NewRecipeForm'
+import {IRecipe} from 'model/recipe'
 
-const RecipesPage = ({recipes, saveRecipe}) => (
+interface IRecipePageProps {
+    recipes: Array<IRecipe>
+    saveRecipe: Function
+}
+
+const RecipesPage = ({recipes, saveRecipe}: IRecipePageProps) => (
    <div>
       <h1>Recipes</h1>
 
