@@ -3,11 +3,11 @@ import * as React from 'react'
 import Recipe from 'components/Recipe'
 import {IRecipe} from 'model/recipe'
 
-interface RecipesProps {
+interface IProps {
    recipes: Array<IRecipe>
 }
 
-export default ({recipes}: RecipesProps) => ( 
+const Recipes = ({recipes}: IProps) => ( 
    <ul className="list-group">
       {recipes.map(recipeRow)}
    </ul>
@@ -20,3 +20,5 @@ const recipeRow = (recipe, index) => (
       key={index} 
    />
 )
+
+export default Recipes

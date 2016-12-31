@@ -7,12 +7,12 @@ import Recipes from 'components/Recipes'
 import NewRecipeForm from 'components/NewRecipeForm'
 import {IRecipe} from 'model/recipe'
 
-interface IRecipePageProps {
+interface IProps {
     recipes: Array<IRecipe>
     saveRecipe: Function
 }
 
-const RecipesPage = ({recipes, saveRecipe}: IRecipePageProps) => (
+const RecipesPage = ({recipes, saveRecipe}: IProps) => (
    <div>
       <h1>Recipes</h1>
 
