@@ -5,7 +5,7 @@
   "main": "./src/index.tsx",
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
-    "test": "mocha --require test/setup.js app/**/*.spec.jsx --compilers js:babel-register",
+    "test": "mocha --reporter spec --require test/setup.js app/**/*.spec.tsx --compilers js:babel-register",
     "start": "webpack-dev-server --content-base src/ --progress --colors",
     "build": "webpack",
     "prebuild": "rm -rf ./build"

@@ -8,8 +8,8 @@ interface IProps {
 
 export default class NewRecipeForm extends Component<IProps, IRecipe> {
 
-   constructor(props: IProps) {
-      super(props);
+   constructor() {
+      super();
 
       this.state = {
          title: "",
