@@ -2,7 +2,7 @@ import React, {Component, FormEvent} from 'react'
 
 import {IRecipe} from 'model/recipe'
 
-interface IProps {
+export interface IProps {
    submit: Function
 }
 

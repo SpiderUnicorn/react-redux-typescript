@@ -1,15 +1,16 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
     "noImplicitAny": false,
-    "outDir": "./build/",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
     "removeComments": false,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "es6"
   },
   

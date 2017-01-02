@@ -5,47 +5,10 @@
   "main": "./src/index.tsx",
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
-    "test": "mocha --reporter spec --require test/setup.js app/**/*.spec.tsx --compilers js:babel-register",
+    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --compilers js:babel-core/register --reporter spec src/**/*.spec.tsx",
     "start": "webpack-dev-server --content-base src/ --progress --colors",
     "build": "webpack",
     "prebuild": "rm -rf ./build"
-  },
-  "jest": {
-    "scriptPreprocessor": "./node_modules/babel-jest",
-    "unmockedModulePathPatterns": [
-      "promise",
-      "source-map",
-      "react",
-      "enzyme",
-      "node_modules/react",
-      "node_modules/fbjs",
-      "node_modules/react-dom",
-      "node_modules/react-addons-test-utils",
-      "react-dom",
-      "react-addons-test-utils",
-      "fbjs",
-      "cheerio",
-      "htmlparser2",
-      "underscore",
-      "lodash",
-      "domhandler",
-      "object.assign",
-      "define-properties",
-      "function-bind",
-      "object-keys"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json"
-    ],
-    "testPathPattern": "**/*.test.js",
-    "testFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "collectCoverage": true,
-    "verbose": "true"
   },
   "keywords": [],
   "author": "Johan Nyström",
@@ -53,6 +16,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootswatch": "^3.3.7",
+    "expect": "^1.20.2",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^5.0.1",
@@ -60,10 +24,16 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/enzyme": "^2.5.39",
+    "@types/expect": "^1.13.31",
+    "@types/mocha": "^2.2.35",
+    "@types/node": "^6.0.55",
     "@types/react": "^0.14.55",
     "@types/react-dom": "^0.14.19",
     "@types/react-router": "^2.0.41",
     "@types/redux": "^3.6.0",
+    "@types/expect": "^1.13.31",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.7.7",
     "babel-jest": "^18.0.0",
@@ -76,7 +46,7 @@
     "chai": "^3.5.0",
     "concurrently": "^3.1.0",
     "css-loader": "^0.26.1",
-    "enzyme": "^2.3.0",
+    "enzyme": "^2.7.0",
     "eslint": "^3.12.2",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^6.8.0",
@@ -109,6 +79,7 @@
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.3.3",
+    "ts-node": "^2.0.0",
     "typescript": "^2.2.0-dev.20161228",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
