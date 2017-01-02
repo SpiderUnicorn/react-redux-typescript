@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const App = () => (
 
@@ -8,6 +8,6 @@ const App = () => (
         <p>A page used to test routing</p>
 
     </div>
-)
+);
 
-export default App
+export default App;

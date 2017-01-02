@@ -1,1 +1,1 @@
-export const SAVE_RECIPE = 'recipes/SAVE_RECIPE'
+export const SAVE_RECIPE = 'recipes/SAVE_RECIPE';

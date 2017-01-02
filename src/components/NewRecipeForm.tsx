@@ -1,20 +1,19 @@
-import React, {Component, FormEvent} from 'react'
+import React, {Component, FormEvent} from 'react';
+import {IRecipe} from 'model/recipe';
 
-import {IRecipe} from 'model/recipe'
-
-export interface IProps {
+export interface Props {
    submit: Function
 }
 
-export default class NewRecipeForm extends Component<IProps, IRecipe> {
+export default class NewRecipeForm extends Component<Props, IRecipe> {
 
    constructor() {
       super();
 
       this.state = {
-         title: "",
-         description: ""
-      }
+         title: '',
+         description: ''
+      };
 
       this.handleTitleChange = this.handleTitleChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -37,11 +36,11 @@ export default class NewRecipeForm extends Component<IProps, IRecipe> {
       event.preventDefault();
 
       this.props.submit(
-          this.state.title, 
+          this.state.title,
           this.state.description
-        )
+        );
 
-      this.setState({title: '', description: ''})
+      this.setState({title: '', description: ''});
     }
 
    public render() {
@@ -49,32 +48,35 @@ export default class NewRecipeForm extends Component<IProps, IRecipe> {
          <form>
             <div className="form-group">
                <label htmlFor="recipeTitle">Title</label>
-               <input 
+               <input
                   id="recipeTitle"
                   placeholder="Title"
                   className="form-control"
-                  type="text" 
-                  value={this.state.title} 
-                  onChange={this.handleTitleChange}/>
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange}
+               />
             </div>
-            
+
             <div className="form-group">
                <label htmlFor="recipeDescription">Description</label>
-               <input 
+               <input
                   id="recipeDescription"
                   placeholder="Description"
                   className="form-control"
-                  type="text" 
-                  value={this.state.description} 
-                  onChange={this.handleDescriptionChange}/>
+                  type="text"
+                  value={this.state.description}
+                  onChange={this.handleDescriptionChange}
+               />
             </div>
 
-            <button 
-               className="btn btn-info" 
-               onClick={this.handleSubmit}>
+            <button
+               className="btn btn-info"
+               onClick={this.handleSubmit}
+            >
                Add Recipe
             </button>
          </form>
-      )
+      );
    }
 }

@@ -1,0 +1,24 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "rules": {
+    "quotemark": [true, "single", "jsx-double"],
+    "no-empty": false,
+    "interface-name": [true, "never-prefix"],
+    "no-angle-bracket-type-assertion": true,
+    "ordered-imports": [false],
+    "no-require-imports": true,
+    "no-reference": true,
+    "semicolon": [true, "always", "ignore-interfaces"],
+    "trailing-comma": [
+      false
+    ],
+    "member-ordering": [
+      false
+    ],
+    "object-literal-sort-keys": false,
+    "eofline": false,
+
+    // tslint-react rules 
+    "jsx-no-lambda": true,
+  }
+}

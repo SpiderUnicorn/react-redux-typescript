@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react';
+import { Link } from 'react-router';
 
 const App = (props) => (
     <div>
@@ -16,6 +16,6 @@ const App = (props) => (
             {props.children}
         </main>
     </div>
-)
+);
 
-export default App
+export default App;
