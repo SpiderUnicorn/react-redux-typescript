@@ -16,9 +16,13 @@
       false
     ],
     "object-literal-sort-keys": false,
+    "object-literal-shorthand": true,
     "eofline": false,
 
     // tslint-react rules 
     "jsx-no-lambda": true,
+    "jsx-no-multiline-js": true,
+    "jsx-self-close": true,
+    "jsx-wrap-multiline": true
   }
 }
