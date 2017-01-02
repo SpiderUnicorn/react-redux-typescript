@@ -9,10 +9,11 @@ module.exports = function () {
         tests: [
             'src/**/*.spec.tsx'
         ],
+
         env: {
-            
             type: 'node'
         },
+        
         preprocessors: {
             '**/*.js': file => require('babel-core').transform(
                                      file.content,

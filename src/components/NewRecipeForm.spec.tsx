@@ -18,4 +18,10 @@ describe("NewRecipeForm", () => {
       const wrapper = setup();
       expect(wrapper.find('form').length).toEqual(1);
     })
+
+    it('picks up title and description', () => {
+      const wrapper = setup();
+   
+      expect(wrapper.find('form').length).toEqual(1);
+    })
 })

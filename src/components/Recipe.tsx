@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IRecipe} from 'src/model/recipe.ts'
+import {IRecipe} from 'model/recipe'
 
 const Recipe = ({title, description}: IRecipe) => (
    <li className="list-group-item">
