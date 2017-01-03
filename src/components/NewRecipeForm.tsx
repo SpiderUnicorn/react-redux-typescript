@@ -1,16 +1,17 @@
 import React, {Component, FormEvent} from 'react';
-import {IRecipe} from 'model/recipe';
+import {Recipe} from 'model/recipe';
 
 export interface Props {
    submit: Function
 }
 
-export default class NewRecipeForm extends Component<Props, IRecipe> {
+export default class NewRecipeForm extends Component<Props, Recipe> {
 
    constructor() {
       super();
 
       this.state = {
+         id: undefined,
          title: '',
          description: ''
       };
@@ -40,7 +41,7 @@ export default class NewRecipeForm extends Component<Props, IRecipe> {
           this.state.description
         );
 
-      this.setState({title: '', description: ''});
+      this.setState({id: undefined, title: '', description: ''});
     }
 
    public render() {

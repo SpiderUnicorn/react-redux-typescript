@@ -12,8 +12,8 @@ export default function configureStore(): Store<ApplicationState> {
     // state from reducers
     const persistedState: ApplicationState = {
         recipes: [
-            { title: 'Pasta rosso', description: 'Pasta with ketchup'},
-            { title: 'Leftovers', description: 'Whatever you can find in the fridge'}
+            { id: 1, title: 'Pasta rosso', description: 'Pasta with ketchup'},
+            { id: 2, title: 'Leftovers', description: 'Whatever you can find in the fridge'}
         ]
     };
 
