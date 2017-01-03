@@ -1,4 +1,4 @@
-import { SAVE_RECIPE, DELETE_RECIPE } from 'actions/actionTypes';
+import { SAVE_RECIPE, DELETE_RECIPE, LOAD_RECIPES_SUCCESS } from 'actions/actionTypes';
 import { Reducer } from 'redux';
 import { Action } from 'actions';
 
@@ -24,6 +24,9 @@ const initialState: ApplicationState = {
 
 function recipeReducer(state = initialState, action: Action): ApplicationState {
     switch (action.type) {
+
+    case LOAD_RECIPES_SUCCESS:
+        return {recipes: action.payload};
 
     case SAVE_RECIPE:
         return combine(state, { recipes: [...state.recipes, action.payload] });
