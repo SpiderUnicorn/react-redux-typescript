@@ -34,7 +34,7 @@ $ yarn build
 When serving or building the application, linting is performed as part
 of the bundling. You can manually perform linting though the following command.
 ```sh
-$ yarn run lint
+$ yarn lint
 ```
 
 # Run tests

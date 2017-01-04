@@ -4,7 +4,7 @@
   "description": "A simple starter kit for react with react router, webpack, hot reloading and eslint",
   "main": "./src/index.tsx",
   "scripts": {
-    "lint2": "tslint --format stylish --force src/**/*.tsx src/**/*.ts",
+    "lint": "tslint --format stylish --force src/**/*.tsx src/**/*.ts",
     "stats": "webpack --profile --json > stats.json",
     "test": "echo \"Run tests with wallaby.js. See readme.\"",
     "start": "webpack-dev-server --content-base src/ --progress --colors",

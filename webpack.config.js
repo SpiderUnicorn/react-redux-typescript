@@ -1,23 +1,23 @@
-const path = require('path')
+const path = require('path');
 
 /* Let webpack generate HTML to easily include bundles */
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /* Split the configuration to extract common behaviour for all
  * configurations and merge it with build / prod config */
-const merge = require('webpack-merge')
+const merge = require('webpack-merge');
 
 /* validates webpack config against a schema and reports errors
  * see the module.exports at the bottom of the page */
-const validate = require('webpack-validator')
+const validate = require('webpack-validator');
 
 /* Partial configuration to include */
-const parts = require('./lib/parts')
+const parts = require('./lib/parts');
 
 /* get config to pull vendor dependencies
  * for splitting the bundle into appropriate
  * chunks */
-const manifest = require('./package.json')
+const manifest = require('./package.json');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -40,7 +40,7 @@ const common = {
         preLoaders: [
             {
                 test: [/\.tsx$/, /\.ts$/],
-                loader: 'tslint-loader',
+                loader: 'tslint',
                 include: PATHS.app
             }
         ],
@@ -93,6 +93,9 @@ case 'stats':
                 // This is used for require.ensure. The setup
                 // will work without but this is useful to set.
                 chunkFilename: '[chunkhash].js'
+            },
+            node: {
+                fs: "empty"
             }
         },
         parts.setFreeVariable(
@@ -122,4 +125,4 @@ default:
     )
 }
 
-module.exports = validate(config)
+module.exports = validate(config);
