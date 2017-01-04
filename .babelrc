@@ -1,13 +1,26 @@
 {
     "presets": [ 
+        // webpack 2 handles es2015 imports so we can disable them.
+        // required for webpacks tree-shaking
         ["es2015", { "modules": false }],
+        // preset for transpling jsx
         "react"
     ],
     "plugins": [
         "react-require",
+        // plugin for async / await support
         ["transform-runtime", {
             "polyfill": false,
             "regenerator": true
         }]
-    ]
+    ],
+    "env": {
+        // babel uses BABEL_ENV if set, otherwise NODE_ENV, otherwise 'development'
+        "development": {
+            // configuration for hot module replacement for react
+            "presets": [
+                "react-hmre"
+            ]
+        } 
+    }
 }
