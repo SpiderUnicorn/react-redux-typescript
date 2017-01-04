@@ -1,15 +1,11 @@
 const path = require('path');
-
-/* Let webpack generate HTML to easily include bundles */
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTemplate = require('html-webpack-template');
 
 /* Split the configuration to extract common behaviour for all
  * configurations and merge it with build / prod config */
 const merge = require('webpack-merge');
-
-/* validates webpack config against a schema and reports errors
- * see the module.exports at the bottom of the page */
-const validate = require('webpack-validator');
 
 /* Partial configuration to include */
 const parts = require('./lib/parts');
@@ -37,48 +33,76 @@ const common = {
     },
 
     module: {
-        preLoaders: [
+        rules: [
             {
+                /** Linting for TypeScript
+                 * 
+                 * Using enforce: 'pre' makes sure linting is run as a pre-step.
+                 * Previously known as a pre-loader in webpack 1.
+                 */
+                enforce: 'pre',
                 test: [/\.tsx$/, /\.ts$/],
-                loader: 'tslint',
-                include: PATHS.app
-            }
-        ],
-
-        loaders: [
-            // loader for regular react
-            {
-                test: [/\.jsx?$/, /\.js?$/],
-                // cache babel tranpilation for increased performance during development
-                loaders: ['react-hot', 'babel?cacheDirectory'],
-                include: PATHS.app
+                use: 'tslint-loader'
             },
-            // loader for typescript-tsx
             {
+                /** Load typescript through ts-loader and babel
+                 * 
+                 * Babel transpilation is cached. Source files with the same checksum
+                 * won't be retranspiled.
+                 */
                 test: /\.tsx?$/,
-                loaders: ['react-hot','babel?cacheDirectory', 'ts?jsx=true'],
-                exclude: /node_modules/
+                use: ['babel-loader?cacheDirectory', 'ts-loader'],
+                include: PATHS.app
             },
+
+            // boostrap
+            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader'},
+            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff'},
+            {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream'},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml'},
+            {test: /\.(jpe?g|png|gif)$/i, use: 'file-loader?name=[name].[ext]'},
+            {test: /\.ico$/, use: 'file-loader?name=[name].[ext]'},
+            {test: /(\.css|\.scss)$/, use: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']}
         ]
     },
 
     plugins: [
+        // Let webpack generate HTML, completely removing the need of an index.html
         new HtmlWebpackPlugin({
-            title: 'React redux typescript',
-            template: 'src/index.ejs'
-        })
+            title: 'React Redux TypeScript example',
+            template: HtmlWebpackTemplate,
+            appMountId: 'app',
+            // Meta tag for scaling
+            mobile: true, 
+            // html-webpack-template takes care of asset injection. Leave as false 
+            inject: false 
+        }),
+
+        /** Emit module paths instead of webpack generated numbers to identify modules easier. 
+         * Useful for debugging, and makes more readable output in general, though verbose. 
+         */
+        new webpack.NamedModulesPlugin()
+
     ],
 
     resolve: {
-        // to resolve modules loaded by absolute path eg: components/component
-        root: path.resolve('./src'),
-        extensions: ['', '.js', '.jsx', '.ts', '.tsx']
+        modules: [ 
+             // to resolve modules loaded by absolute path eg: components/component
+            path.resolve('./src'),
+            'node_modules' 
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+    },
+
+    performance: {
+        // hints: false
     }
 }
 
 let config
 
 /* Branch config based on NPM run command */
+// TODO: currently disabled
 switch(process.env.npm_lifecycle_event) {
 case 'build':
 // fallthrough. generate stats for the build config
@@ -122,7 +146,14 @@ default:
             host: process.env.HOST,
             port: process.env.PORT
         })
-    )
+
+    );
 }
 
-module.exports = validate(config);
+/** Webpack 2 can receive the node environment as an argument.
+ * This makes for easy splitting of the configuration based on 
+ * the environment. 
+ */
+module.exports = function(env) {
+    return merge(common);
+};

@@ -3,9 +3,9 @@
 <img align="center" src="./logo.png">
 
 
-### A simple starter pack for react with react-router, webpack, hot-reloading and linting set up. 
+### A simple starter pack for react with redux, thunk, react-router, webpack 2, hot-reloading and linting set up. 
 
-I made this repository to give examples of TypeScript can improve the react/redux experience.
+I made this repository to give examples of how TypeScript can improve the react/redux experience.
 I tried to not go overboard with the static type checks, but rather use TypeScript where
 I felt it actually solved problems. For example, *actions* are still fairly loosely typed. It's
 possible to use TypeScript to a much greater extent than I've done, but don't go adding
@@ -44,7 +44,8 @@ that is currently unparalleled when in comes to ease of setup, ease of
 use and performance. The only downside is that it's not free. If you are
 serious about testing your front end, give it a try. I spent many hours
 trying to get everything integrated with mocha, while with wallaby, it
-just works.
+just works. For example, I use absolute import paths throughout the
+application which doesn't play well with mocha. 
 
 ***How you run wallaby depends on your IDE. I won't provide specifics
 here as they are likely to change.***
