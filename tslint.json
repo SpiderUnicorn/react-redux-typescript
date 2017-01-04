@@ -3,7 +3,6 @@
   "rules": {
     "quotemark": [true, "single", "jsx-double"],
     "no-empty": false,
-    "no-unused-variable": [false],
     "no-consecutive-blank-lines": [true],
     "no-namespace": [true],
     "no-var-keyword": true,
