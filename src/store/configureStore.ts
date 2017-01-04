@@ -3,6 +3,7 @@ import { Store, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import {ApplicationState} from 'reducers';
 
+// window is available but has to be explicitly declared
 declare var window;
 
 // Export the configure method instead of the store

@@ -1,11 +1,12 @@
 import React from 'react';
-import {Recipe as IRecipe} from 'model/recipe';
 
+/** Props for the <Recipe> component */
 export interface Props {
    title: string;
    description: string;
 }
 
+/** Component for displaying recipe information */
 const Recipe = ({title, description}: Props) => (
    <span>
       {title}

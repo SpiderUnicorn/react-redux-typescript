@@ -2,7 +2,7 @@ export default [
    {
       id: 1,
       title: 'Pasta rosso',
-      description: 'Pasta with ketchp'
+      description: 'Pasta with ketchup'
    },
    {
       id: 2,

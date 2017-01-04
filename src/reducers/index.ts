@@ -1,15 +1,10 @@
 import { SAVE_RECIPE, DELETE_RECIPE, LOAD_RECIPES_SUCCESS } from 'actions/actionTypes';
-import { Reducer } from 'redux';
 import { Action } from 'actions';
+import { Recipe } from 'model/recipe';
 
+/** The complete structure of the application state */
 export interface ApplicationState {
     recipes: Recipe[]
-}
-
-export interface Recipe {
-    id: number,
-    title: string,
-    description: string
 }
 
 const initialState: ApplicationState = {
@@ -22,6 +17,7 @@ const initialState: ApplicationState = {
     ]
 };
 
+/** The redux reducer for recipes. Handles recipe actions. */
 function recipeReducer(state = initialState, action: Action): ApplicationState {
     switch (action.type) {
 

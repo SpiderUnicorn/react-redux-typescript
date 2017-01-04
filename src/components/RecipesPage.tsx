@@ -1,31 +1,33 @@
 import React, {Component} from 'react';
 import {saveRecipe, deleteRecipe} from 'actions';
-import {connect} from 'react-redux';
+import {connect, Action} from 'react-redux';
 import {ApplicationState} from 'reducers';
 
 import NewRecipeForm from 'components/NewRecipeForm';
 import {Recipe as IRecipe} from 'model/recipe';
 import Recipe from 'components/Recipe';
 
+/** Props for the <RecipePage> */
 interface Props {
-    recipes: IRecipe[]
-    saveRecipe: Function,
-    deleteRecipe: Function
+    recipes: IRecipe[];
+    saveRecipe: (title: string, description: string) => Action;
+    deleteRecipe: (id: number) => Action;
 }
 
-class RecipesPage extends Component<Props, any> {
+/** The page for displaying recipes and their crud-controls */
+class RecipesPage extends Component<Props, {}> {
 
-    constructor({recipes, saveRecipe, deleteRecipe}: Props) {
-        super();
-    }
-
+    /** Delegate to the delete action creator 
+     * @prop {number} id Id of recipe to delete
+     */
     private handleDelete(id: number) {
         this.props.deleteRecipe(id);
     }
 
-    private recipeRow(recipe: IRecipe, index, deleteRecipe) {
+    /** Displaying the individual recipes */
+    private recipeRow(recipe: IRecipe, deleteRecipe) {
         return (
-            <li className="list-group-item" key={index}>
+            <li className="list-group-item" key={recipe.id}>
                     <span
                         className="badge alert-danger"
                         onClick={this.handleDelete.bind(this, recipe.id)}
@@ -47,11 +49,11 @@ class RecipesPage extends Component<Props, any> {
                 <h1>Recipes</h1>
 
                 <ul>
-                    {this.props.recipes.map((r, index) => this.recipeRow(r, index, deleteRecipe))}
+                    {this.props.recipes.map(recipe => this.recipeRow(recipe, deleteRecipe))}
                 </ul>
 
                 <h2>Add a new recipe</h2>
-                <NewRecipeForm submit={saveRecipe} />
+                <NewRecipeForm submit={this.props.saveRecipe} />
             </div>
         );
     }

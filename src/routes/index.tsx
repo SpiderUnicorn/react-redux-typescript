@@ -5,7 +5,8 @@ import App from 'components/App';
 import AboutPage from 'components/AboutPage';
 import RecipesPage from 'components/RecipesPage';
 
-export default (
+/** The routing configuration for the application using react-router */
+const RouteConfiguration = (
    <Router history={browserHistory}>
       <Route path="/" component={App}>
          <IndexRoute component={RecipesPage} />
@@ -14,3 +15,5 @@ export default (
       </Route>
    </Router>
 );
+
+export default RouteConfiguration;

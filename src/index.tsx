@@ -1,7 +1,6 @@
 // Vendor imports
 import React from 'react';
 import { render } from 'react-dom';
-import { Store } from 'redux';
 import configureStore from './store/configureStore';
 
 // Components
@@ -18,6 +17,7 @@ import { loadRecipes } from 'actions';
 const store = configureStore();
 store.dispatch<any>(loadRecipes());
 
+// The element to render react into
 const appElement = document.getElementById('app');
 
 render((

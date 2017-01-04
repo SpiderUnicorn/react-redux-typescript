@@ -1,10 +1,12 @@
-import React, {Component, FormEvent} from 'react';
+import React, {Component } from 'react';
 import {Recipe} from 'model/recipe';
 
+/** Props for the <NewRecipeForm> component */
 export interface Props {
-   submit: Function
+   submit: (title: string, description: string ) => void;
 }
 
+/** Form for adding new recipes */
 export default class NewRecipeForm extends Component<Props, Recipe> {
 
    constructor() {
@@ -16,6 +18,7 @@ export default class NewRecipeForm extends Component<Props, Recipe> {
          description: ''
       };
 
+      // Binding to allow correct use of "this" within the click-handlers
       this.handleTitleChange = this.handleTitleChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+/** The structure of the application. Includes navigation for all routes. */
 const App = (props) => (
     <div>
         <nav className="navbar navbar-inverse">
