@@ -1,4 +1,4 @@
-# React Redux TypeScript starter
+# React Redux TypeScript example
 
 <img align="center" src="./logo.png">
 
