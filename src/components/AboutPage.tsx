@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 /** A simple static page to demo routing */
-const AboutPage = () => (
+export const AboutPage = () => (
 
     <div className="container col-sm-6">
 
@@ -10,5 +10,3 @@ const AboutPage = () => (
 
     </div>
 );
-
-export default AboutPage;

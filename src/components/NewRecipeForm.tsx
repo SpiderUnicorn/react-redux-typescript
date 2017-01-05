@@ -2,12 +2,12 @@ import React, {Component } from 'react';
 import {Recipe} from 'model/recipe';
 
 /** Props for the <NewRecipeForm> component */
-export interface Props {
+export interface NewRecipeFormProps {
    submit: (title: string, description: string ) => void;
 }
 
 /** Form for adding new recipes */
-export default class NewRecipeForm extends Component<Props, Recipe> {
+export default class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
 
    constructor() {
       super();

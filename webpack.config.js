@@ -96,6 +96,12 @@ const common = {
 
     performance: {
         // hints: false
+    },
+
+    devServer: {
+        historyApiFallback: true,
+        inline: true,
+        hot: true
     }
 }
 
@@ -140,7 +146,6 @@ default:
         {
             devtool: 'eval-source-map'
         },
-        parts.setupCSS(),
         parts.devServer({
             // Read host and port from env
             host: process.env.HOST,

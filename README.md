@@ -3,7 +3,7 @@
 <img align="center" src="./logo.png">
 
 
-### A simple starter pack for react with redux, thunk, react-router, webpack 2, hot-reloading and linting set up. 
+### A simple starter pack for react with redux, thunk, react-router, webpack 2, hot-reloading and linting set up. Styled with bootstrap 4. 
 
 I made this repository to give examples of how TypeScript can improve the react/redux experience.
 I tried to not go overboard with the static type checks, but rather use TypeScript where

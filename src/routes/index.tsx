@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-import App from 'components/App';
-import AboutPage from 'components/AboutPage';
+import {App} from 'components/App';
+import {AboutPage} from 'components/AboutPage';
 import RecipesPage from 'components/RecipesPage';
 
 /** The routing configuration for the application using react-router */

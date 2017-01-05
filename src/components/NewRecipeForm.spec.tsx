@@ -3,13 +3,13 @@ import React from 'react';
 import expect from 'expect';
 import { mount, shallow, ShallowWrapper } from 'enzyme';
 
-import NewRecipeForm, {Props} from './NewRecipeForm';
+import NewRecipeForm, {NewRecipeFormProps} from 'components/NewRecipeForm';
 
 let callCount = 0;
 
 function setup(): ShallowWrapper<any, any> {
-   const props: Props = {
-      submit: () => { ++callCount; }
+   const props: NewRecipeFormProps = {
+      submit: () => { return ++callCount; }
    };
 
    return shallow(<NewRecipeForm {...props} />);

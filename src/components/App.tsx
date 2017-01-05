@@ -2,21 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 
 /** The structure of the application. Includes navigation for all routes. */
-const App = (props) => (
-    <div>
-        <nav className="navbar navbar-inverse">
-            <div className="container col-sm-6">
-                <ul className="nav navbar-nav">
-                    <li><Link to="/recipes">Recipes</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                </ul>
-            </div>
+export const App = (props) => (
+    <main className="container">
+        <nav className="nav nav-inline" role="navigation">
+            <Link to="/recipes" className="nav-link">Recipes</Link>
+            <Link to="/about" className="nav-link">About</Link>
         </nav>
+        <br/>
 
-        <main className="container col-sm-6">
-            {props.children}
-        </main>
-    </div>
+        {props.children}
+    </main>
 );
-
-export default App;
