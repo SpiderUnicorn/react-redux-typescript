@@ -25,9 +25,7 @@ export class RecipesPage extends Component<RecipesPageProps, any> {
     /** Delegate to the delete action creator 
      * @prop {number} id Id of recipe to delete
      */
-    private handleDelete(id: number) {
-        this.props.deleteRecipe(id);
-    }
+    private handleDelete = (id: number) => this.props.deleteRecipe(id);
 
     /** Displaying the individual recipes */
     private displayRecipe(recipe: IRecipe, deleteRecipe) {

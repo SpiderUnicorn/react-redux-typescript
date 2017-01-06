@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React, {Component, SyntheticEvent } from 'react';
 import {Recipe} from 'model/recipe';
 
 /** Props for the <NewRecipeForm> component */
@@ -9,78 +9,68 @@ export interface NewRecipeFormProps {
 /** Form for adding new recipes */
 export class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
 
-   constructor() {
-      super();
+  /** Using property initializer to set the state of the instance
+   * A concise alternative to using constructors
+   */
+  public state = {title: '', description: ''};
 
-      this.state = {
-         id: undefined,
-         title: '',
-         description: ''
-      };
+  private handleTitleChange = (event) => {
+    const recipe = this.state;
+    recipe.title = event.target.value;
+    this.setState(recipe);
+  }
 
-      // Binding to allow correct use of "this" within the click-handlers
-      this.handleTitleChange = this.handleTitleChange.bind(this);
-      this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-   }
+  private handleDescriptionChange = (event) => {
+    const recipe = this.state;
+    recipe.description = event.target.value;
+    this.setState(recipe);
+  }
 
-   private handleTitleChange(event) {
-      const recipe = this.state;
-      recipe.title = event.target.value;
-      this.setState(recipe);
-    }
+  private handleSubmit = (event) => {
+    event.preventDefault();
 
-    private handleDescriptionChange(event) {
-      const recipe = this.state;
-      recipe.description = event.target.value;
-      this.setState(recipe);
-    }
-
-    private handleSubmit(event) {
-      event.preventDefault();
-
-      this.props.submit(
-          this.state.title,
-          this.state.description
-        );
-
-      this.setState({id: undefined, title: '', description: ''});
-    }
-
-   public render() {
-      return (
-         <form>
-            <div className="form-group">
-               <label htmlFor="recipeTitle">Title</label>
-               <input
-                  id="recipeTitle"
-                  placeholder="Title"
-                  className="form-control"
-                  type="text"
-                  value={this.state.title}
-                  onChange={this.handleTitleChange}
-               />
-            </div>
-
-            <div className="form-group">
-               <label htmlFor="recipeDescription">Description</label>
-               <input
-                  id="recipeDescription"
-                  placeholder="Description"
-                  className="form-control"
-                  type="text"
-                  value={this.state.description}
-                  onChange={this.handleDescriptionChange}
-               />
-            </div>
-
-            <button
-               className="btn btn-info"
-               onClick={this.handleSubmit}
-            >
-               Add Recipe
-            </button>
-         </form>
+    this.props.submit(
+        this.state.title,
+        this.state.description
       );
-   }
+
+    this.setState({title: '', description: ''});
+  }
+
+  public render() {
+    return (
+        <form>
+          <div className="form-group">
+              <label htmlFor="recipeTitle">Title</label>
+              <input
+                id="recipeTitle"
+                placeholder="Title"
+                className="form-control"
+                type="text"
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+              />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="recipeDescription">Description</label>
+              <input
+                id="recipeDescription"
+                placeholder="Description"
+                className="form-control"
+                type="text"
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+              />
+          </div>
+
+          <button
+              className="btn btn-info"
+              onClick={this.handleSubmit}
+          >
+              Add Recipe
+          </button>
+        </form>
+    );
+  }
 }
