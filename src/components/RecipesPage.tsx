@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 import {saveRecipe, deleteRecipe} from 'actions';
 import {connect, Action} from 'react-redux';
 import {ApplicationState} from 'reducers';
-
-import NewRecipeForm from 'components/NewRecipeForm';
+import {NewRecipeForm} from 'components/NewRecipeForm';
 import {Recipe as IRecipe} from 'model/recipe';
 import {Recipe} from 'components/Recipe';
 
@@ -15,8 +14,13 @@ interface RecipesPageProps {
     deleteRecipe: (id: number) => Action;
 }
 
+const mapStateToProps = (state: ApplicationState) => ({
+    recipes: state.recipes
+});
+
 /** The page for displaying recipes and their crud-controls */
-class RecipesPage extends Component<RecipesPageProps, any> {
+@connect(mapStateToProps, {saveRecipe, deleteRecipe})
+export class RecipesPage extends Component<RecipesPageProps, any> {
 
     /** Delegate to the delete action creator 
      * @prop {number} id Id of recipe to delete
@@ -60,9 +64,3 @@ class RecipesPage extends Component<RecipesPageProps, any> {
         );
     }
 }
-
-const mapStateToProps = (state: ApplicationState) => ({
-    recipes: state.recipes
-});
-
-export default connect(mapStateToProps, {saveRecipe, deleteRecipe})(RecipesPage);

@@ -3,7 +3,7 @@ import React from 'react';
 import expect from 'expect';
 import { mount, shallow, ShallowWrapper } from 'enzyme';
 
-import NewRecipeForm, {NewRecipeFormProps} from 'components/NewRecipeForm';
+import {NewRecipeForm, NewRecipeFormProps} from 'components/NewRecipeForm';
 
 let callCount = 0;
 

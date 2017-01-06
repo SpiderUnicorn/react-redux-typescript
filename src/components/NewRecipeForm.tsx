@@ -7,7 +7,7 @@ export interface NewRecipeFormProps {
 }
 
 /** Form for adding new recipes */
-export default class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
+export class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
 
    constructor() {
       super();
