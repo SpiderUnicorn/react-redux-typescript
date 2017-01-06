@@ -19,6 +19,7 @@ const initialState: ApplicationState = {
 
 /** The redux reducer for recipes. Handles recipe actions. */
 function recipeReducer(state = initialState, action: Action): ApplicationState {
+    console.log('hi');
     switch (action.type) {
 
     case LOAD_RECIPES_SUCCESS:

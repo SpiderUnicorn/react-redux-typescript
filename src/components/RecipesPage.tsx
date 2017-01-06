@@ -4,16 +4,17 @@ import {saveRecipe, deleteRecipe} from 'actions';
 import {connect, Action} from 'react-redux';
 import {ApplicationState} from 'reducers';
 import {NewRecipeForm} from 'components/NewRecipeForm';
-import {Recipe as IRecipe} from 'model/recipe';
-import {Recipe} from 'components/Recipe';
+import {Recipe} from 'model/recipe';
+import {RecipeCard} from 'components/RecipeCard';
 
 /** Props for the <RecipePage> */
 interface RecipesPageProps {
-    recipes: IRecipe[];
+    recipes: Recipe[];
     saveRecipe: (title: string, description: string) => Action;
     deleteRecipe: (id: number) => Action;
 }
 
+/** Map the recipes to the state in the store */
 const mapStateToProps = (state: ApplicationState) => ({
     recipes: state.recipes
 });
@@ -22,25 +23,12 @@ const mapStateToProps = (state: ApplicationState) => ({
 @connect(mapStateToProps, {saveRecipe, deleteRecipe})
 export class RecipesPage extends Component<RecipesPageProps, any> {
 
-    /** Delegate to the delete action creator 
-     * @prop {number} id Id of recipe to delete
-     */
-    private handleDelete = (id: number) => this.props.deleteRecipe(id);
-
-    /** Displaying the individual recipes */
-    private displayRecipe(recipe: IRecipe, deleteRecipe) {
-        return (
-            <div className="col-sm-4">
-                <div className="card">
-                    <div className="card-block">
-                        <h4 className="card-title">{recipe.title}</h4>
-                        <p className="card-text">{recipe.description}</p>
-                        <a href="#" className="btn btn-sm btn-danger" onClick={deleteRecipe}>delete</a>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    private toRecipeCard = (recipe: Recipe) => (
+        <RecipeCard
+            recipe={recipe}
+            deleteRecipe={this.props.deleteRecipe}
+        />
+    )
 
     public render() {
         return (
@@ -49,7 +37,7 @@ export class RecipesPage extends Component<RecipesPageProps, any> {
                 <hr />
 
                 <div className="row">
-                    {this.props.recipes.map(recipe => this.displayRecipe(recipe, deleteRecipe))}
+                    {this.props.recipes.map(this.toRecipeCard)}
                 </div>
 
                 <hr />
