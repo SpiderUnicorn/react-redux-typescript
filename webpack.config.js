@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
+const postCSSConfig = require('./postcss.config')
 
 /* Split the configuration to extract common behaviour for all
  * configurations and merge it with build / prod config */
@@ -17,7 +18,7 @@ const manifest = require('./package.json');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
-    style: path.join(__dirname, 'src', 'index.scss'),
+    style: path.join(__dirname, 'src', 'index.css'),
     build: path.join(__dirname, 'build')
 };
 
@@ -55,23 +56,34 @@ const common = {
                 include: PATHS.app
             },
             {
-                /** Load fonts (for font-awesome) */
-                test: /\.(eot|woff|woff2|ttf|svg)$/,
-                use: 'url-loader'
-            },
-            {
-                test: /(\.css|\.scss)$/,
+                /** Load css */
+                test: /\.css$/,
                 use: [
                     'style-loader', 
                     'css-loader?sourceMap', 
                     'postcss-loader', 
-                    'sass-loader?sourceMap'
                     ]
-                }
+            },
+            {
+                /** Load fonts (for font-awesome) */
+                test: /\.(eot|woff|woff2|ttf|svg)$/,
+                use: 'url-loader'
+            }
+
         ]
     },
 
     plugins: [
+         new webpack.LoaderOptionsPlugin({
+            options: {
+                context: PATHS.app,
+                postcss: [
+                    require("postcss-import")({ addDependencyTo: webpack }),
+                    require("postcss-url")
+                ]
+            }
+         }),
+
         // Let webpack generate HTML, completely removing the need of an index.html
         new HtmlWebpackPlugin({
             title: 'React Redux TypeScript example',
