@@ -5,10 +5,16 @@ import { SAVE_RECIPE,
 import {RecipeActions} from 'actions/actionTypes';
 import {Recipe} from 'model/recipe';
 
-/** The complete structure of the application state */
+/** The complete structure of the application state
+ * 
+ * In redux, the state is never mutated directly.
+ * For this reason, the state interface declares all
+ * members as readonly to gain compile-time checks
+ * against mutation. 
+ */
 export interface ApplicationState {
-    recipes: Recipe[];
-    saveLoading: boolean;
+    readonly recipes: ReadonlyArray<Recipe>;
+    readonly saveLoading: boolean;
 }
 
 const initialState: ApplicationState = {

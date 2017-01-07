@@ -13,7 +13,7 @@ module.exports = function () {
         env: {
             type: 'node'
         },
-        
+
         preprocessors: {
             '**/*.js': file => require('babel-core').transform(
                                      file.content,

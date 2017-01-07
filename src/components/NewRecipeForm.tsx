@@ -3,8 +3,8 @@ import {Recipe} from 'model/recipe';
 
 /** Props for the <NewRecipeForm> component */
 export interface NewRecipeFormProps {
-   submit: (recipe: Recipe) => void;
-   loading: boolean;
+   readonly submit: (recipe: Recipe) => void;
+   readonly loading: boolean;
 }
 
 /** Form for adding new recipes */

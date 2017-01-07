@@ -3,8 +3,8 @@ import {Recipe} from 'model/recipe';
 
 /** Props for the <RecipeCard> component */
 export interface RecipeCardProps {
-    recipe: Recipe;
-    deleteRecipe: Function
+    readonly recipe: Recipe;
+    readonly deleteRecipe: Function
 }
 
 /** A card view of a recipe */

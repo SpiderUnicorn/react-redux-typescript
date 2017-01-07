@@ -9,10 +9,10 @@ import {RecipeCard} from 'components/RecipeCard';
 
 /** Props for the <RecipePage> */
 interface RecipesPageProps {
-    recipes: Recipe[];
-    saveRecipe: (recipe: Recipe) => Action;
-    deleteRecipe: (id: number) => Action;
-    loading: boolean;
+    readonly recipes: ReadonlyArray<Recipe>;
+    readonly saveRecipe: (recipe: Recipe) => Action;
+    readonly deleteRecipe: (id: number) => Action;
+    readonly loading: boolean;
 }
 
 /** Map the recipes to the state in the store */
