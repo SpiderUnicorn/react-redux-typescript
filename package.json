@@ -16,7 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
-    "bootswatch": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "font-awesome-webpack": "^0.0.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^5.0.1",
@@ -74,8 +75,8 @@
     "typescript": "^2.2.0-dev.20161228",
     "typescript-require": "^0.2.9-1",
     "url-loader": "^0.5.7",
-    "webpack-merge": "^2.0.0",
     "webpack": "beta",
-    "webpack-dev-server": "beta"
+    "webpack-dev-server": "beta",
+    "webpack-merge": "^2.0.0"
   }
 }

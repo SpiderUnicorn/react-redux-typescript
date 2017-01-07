@@ -9,7 +9,8 @@ let callCount = 0;
 
 function setup(): ShallowWrapper<any, any> {
    const props: NewRecipeFormProps = {
-      submit: () => { return ++callCount; }
+      submit: () => { return ++callCount; },
+      loading: false
    };
 
    return shallow(<NewRecipeForm {...props} />);

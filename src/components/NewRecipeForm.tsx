@@ -3,7 +3,8 @@ import {Recipe} from 'model/recipe';
 
 /** Props for the <NewRecipeForm> component */
 export interface NewRecipeFormProps {
-   submit: (title: string, description: string ) => void;
+   submit: (recipe: Recipe) => void;
+   loading: boolean;
 }
 
 /** Form for adding new recipes */
@@ -29,10 +30,10 @@ export class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
   private handleSubmit = (event) => {
     event.preventDefault();
 
-    this.props.submit(
-        this.state.title,
-        this.state.description
-      );
+    this.props.submit({
+        title: this.state.title,
+        description: this.state.description
+    });
 
     this.setState({title: '', description: ''});
   }
@@ -65,10 +66,11 @@ export class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
           </div>
 
           <button
-              className="btn btn-info"
+              className="btn btn-info btn-block"
               onClick={this.handleSubmit}
           >
-              Add Recipe
+              Add Recipe 
+              {this.props.loading ? <i className="fa fa-circle-o-notch fa-spin fa-fw" aria-hidden="true" /> : ''}
           </button>
         </form>
     );

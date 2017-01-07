@@ -1,31 +1,44 @@
-import { SAVE_RECIPE, DELETE_RECIPE, LOAD_RECIPES_SUCCESS } from 'actions/actionTypes';
-import { fetchAll } from 'api/mockApi';
+import { SAVE_RECIPE,
+    SAVE_RECIPE_SUCCESS,
+    SAVE_RECIPE_ERROR,
+    DELETE_RECIPE,
+    LOAD_RECIPES_SUCCESS } from 'actions/actionTypes';
+import { fetchAll, save } from 'api/mockApi';
 import { Recipe } from 'model/recipe';
-
-/** 
- * The basic structure of a redux action.
- * 
- * The type represents the kind of action that is being performed
- * and the payload is any data supplied with the action. The payload
- * is not typed, to easily allow for many different kinds of actions.
- * For example, a create action may need a full object as the payload,
- * while a delete action may only need an ID.
- */
-export interface Action {
-    type: string
-    payload: any
-}
+import {dispatch, Dispatch} from 'react-redux';
+import * as ActionTypes from 'actions/actionTypes';
 
 /** 
  * An action created for saving a recipe.
  * 
- * Carries the title and a description of a recipe to save 
- * @param {string} title    Title of the new recipe
- * @param {string} description  Description of the new recipe
+ * An sync action resulting in a successful or rejected
+ * save. 
+ * @param {recipe} Recipe   Recipe to save
  */
-export const saveRecipe = (title, description): Action => ({
-    type: SAVE_RECIPE,
-    payload: { title, description }
+export function saveRecipe(recipe: Recipe) {
+    return async (dispatch: Dispatch)  => {
+        dispatch(beginSaveRecipe());
+        try {
+             const savedRecipe = await save(recipe);
+             dispatch(saveRecipeSuccess(savedRecipe));
+        } catch (e) {
+            dispatch(saveRecipeError(recipe));
+        }
+    };
+};
+
+const beginSaveRecipe = (): ActionTypes.SaveRecipe => ({
+    type: SAVE_RECIPE
+});
+
+const saveRecipeSuccess = (savedRecipe: Recipe): ActionTypes.SaveRecipeSuccess => ({
+    type: SAVE_RECIPE_SUCCESS,
+    recipe: savedRecipe
+});
+
+const saveRecipeError = (unsavedRecipe: Recipe): ActionTypes.SaveRecipeError => ({
+    type: SAVE_RECIPE_ERROR,
+    recipe: unsavedRecipe
 });
 
 /** 
@@ -34,9 +47,9 @@ export const saveRecipe = (title, description): Action => ({
  * Carries the id of the recipe to be deleted.
  * @param {number} Id   Id of the recipe to be carried on the action. 
  */
-export const deleteRecipe = (id: number): Action => ({
+export const deleteRecipe = (id: number): ActionTypes.DeleteRecipe => ({
     type: DELETE_RECIPE,
-    payload: { id }
+    id
 });
 
 /** 
@@ -58,7 +71,7 @@ export function loadRecipes() {
     };
 };
 
-const loadRecipesSuccess = (recipes: Recipe[]): Action => ({
+const loadRecipesSuccess = (recipes: Recipe[]): ActionTypes.LoadRecipesSuccess => ({
     type: LOAD_RECIPES_SUCCESS,
-    payload: recipes
+    recipes
 });

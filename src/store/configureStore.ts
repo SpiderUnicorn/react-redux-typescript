@@ -15,7 +15,8 @@ export default function configureStore(): Store<any> {
     const persistedState: ApplicationState = {
         recipes: [
             { id: 99, title: 'Persisted recipe', description: 'can be overridden by calling a fetch action on startup'},
-        ]
+        ],
+        saveLoading: false
     };
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

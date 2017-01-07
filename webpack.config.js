@@ -17,9 +17,9 @@ const manifest = require('./package.json');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
-    style: path.join(__dirname, 'src', 'index.css'),
+    style: path.join(__dirname, 'src', 'index.scss'),
     build: path.join(__dirname, 'build')
-}
+};
 
 const common = {
     entry: {
@@ -54,15 +54,20 @@ const common = {
                 use: ['babel-loader?cacheDirectory', 'ts-loader'],
                 include: PATHS.app
             },
-
-            // boostrap
-            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader'},
-            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff'},
-            {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream'},
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml'},
-            {test: /\.(jpe?g|png|gif)$/i, use: 'file-loader?name=[name].[ext]'},
-            {test: /\.ico$/, use: 'file-loader?name=[name].[ext]'},
-            {test: /(\.css|\.scss)$/, use: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']}
+            {
+                /** Load fonts (for font-awesome) */
+                test: /\.(eot|woff|woff2|ttf|svg)$/,
+                use: 'url-loader'
+            },
+            {
+                test: /(\.css|\.scss)$/,
+                use: [
+                    'style-loader', 
+                    'css-loader?sourceMap', 
+                    'postcss-loader', 
+                    'sass-loader?sourceMap'
+                    ]
+                }
         ]
     },
 
@@ -161,4 +166,4 @@ default:
  */
 module.exports = function(env) {
     return merge(common);
-};
+}

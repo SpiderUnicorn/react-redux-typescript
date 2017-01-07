@@ -10,13 +10,15 @@ import {RecipeCard} from 'components/RecipeCard';
 /** Props for the <RecipePage> */
 interface RecipesPageProps {
     recipes: Recipe[];
-    saveRecipe: (title: string, description: string) => Action;
+    saveRecipe: (recipe: Recipe) => Action;
     deleteRecipe: (id: number) => Action;
+    loading: boolean;
 }
 
 /** Map the recipes to the state in the store */
 const mapStateToProps = (state: ApplicationState) => ({
-    recipes: state.recipes
+    recipes: state.recipes,
+    loading: state.saveLoading
 });
 
 /** The page for displaying recipes and their crud-controls */
@@ -43,7 +45,7 @@ export class RecipesPage extends Component<RecipesPageProps, any> {
                 <hr />
                 <div className="col-sm-4">
                     <h2>Add a new recipe</h2>
-                    <NewRecipeForm submit={this.props.saveRecipe} />
+                    <NewRecipeForm submit={this.props.saveRecipe} loading={this.props.loading} />
                 </div>
 
             </div>
