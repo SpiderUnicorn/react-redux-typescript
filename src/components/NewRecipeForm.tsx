@@ -69,7 +69,7 @@ export class NewRecipeForm extends Component<NewRecipeFormProps, Recipe> {
               className="btn btn-info btn-block"
               onClick={this.handleSubmit}
           >
-              Add Recipe 
+              Add Recipe
               {this.props.loading ? <i className="fa fa-circle-o-notch fa-spin fa-fw" aria-hidden="true" /> : ''}
           </button>
         </form>
