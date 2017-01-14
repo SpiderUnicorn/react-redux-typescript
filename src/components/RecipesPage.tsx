@@ -1,7 +1,8 @@
 import { throws } from 'assert';
 import React, {Component} from 'react';
 import {saveRecipe, deleteRecipe} from 'actions';
-import {connect, Action} from 'react-redux';
+import {Action} from 'redux';
+import {connect } from 'react-redux';
 import {ApplicationState} from 'reducers';
 import {NewRecipeForm} from 'components/NewRecipeForm';
 import {Recipe} from 'model/recipe';

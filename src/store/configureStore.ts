@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {ApplicationState} from 'reducers';
 
 // window is available but has to be explicitly declared
-declare var window;
+declare var window: any;
 
 // Export the configure method instead of the store
 // to be able to create any amount of stores for testing

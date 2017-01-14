@@ -1,12 +1,31 @@
-import { SAVE_RECIPE,
-    SAVE_RECIPE_SUCCESS,
-    SAVE_RECIPE_ERROR,
-    DELETE_RECIPE,
-    LOAD_RECIPES_SUCCESS } from 'actions/actionTypes';
+import {
+  DELETE_RECIPE,
+  LOAD_RECIPES_SUCCESS,
+  SAVE_RECIPE,
+  SAVE_RECIPE_ERROR,
+  SAVE_RECIPE_SUCCESS
+} from 'actions/actionTypes';
+import * as ActionTypes from 'actions/actionTypes';
 import { fetchAll, save } from 'api/mockApi';
 import { Recipe } from 'model/recipe';
-import {dispatch, Dispatch} from 'react-redux';
-import * as ActionTypes from 'actions/actionTypes';
+import { Dispatch } from 'react-redux';
+
+/**
+ * Action creator, a part of the redux flow. 
+ * 
+ * Action creators are functions that create actions to be used by the redux dispatch
+ * function, which passes the action, as well as the previous state, to the reducer. 
+ * 
+ *   ---------------------                                   ...............
+ *   |   action creator  | -->     dispatch(action)    -->   .   reducer   .
+ *   ---------------------                                   ...............
+ *            /\                                                    |
+ *            |                                                     \/
+ *       ............                                         .............
+ *       .   view   .     <--  state passed as props  <--     .   store   .
+ *       ............                                         .............
+ * 
+ */
 
 /** 
  * An action created for saving a recipe.
@@ -16,7 +35,7 @@ import * as ActionTypes from 'actions/actionTypes';
  * @param {recipe} Recipe   Recipe to save
  */
 export function saveRecipe(recipe: Recipe) {
-    return async (dispatch: Dispatch)  => {
+    return async (dispatch: Dispatch<any>)  => {
         dispatch(beginSaveRecipe());
         try {
              const savedRecipe = await save(recipe);

@@ -5,6 +5,26 @@ import { SAVE_RECIPE,
 import {RecipeActions} from 'actions/actionTypes';
 import {Recipe} from 'model/recipe';
 
+/**
+ * Reducer, a part of the redux flow. 
+ * 
+ * Reducers decide how the state changes in response to an action. Reducers handle the
+ * entire state of the application as a single object. The reducer takes the previous state
+ * and an action to produce new state. 
+ * 
+ * Important! Reducer must never mutate state. No side effects or API calls. 
+ * 
+ *   .....................                                   ---------------
+ *   .   action creator  . -->     dispatch(action)    -->   |   reducer   |
+ *   .....................                                   ---------------
+ *            /\                                                    |
+ *            |                                                     \/
+ *       ............                                         .............
+ *       .   view   .     <--  state passed as props  <--     .   store   .
+ *       ............                                         .............
+ * 
+ */
+
 /** The complete structure of the application state
  * 
  * In redux, the state is never mutated directly.
